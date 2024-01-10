@@ -24,6 +24,8 @@ public class LexerImpl {
         String[] codeSplitted = codeSpliter.getCodeSplitted().toArray(new String[0]);
 
         for (String word: codeSplitted) {
+            if(word.equals("\"") || word.equals("\'"))
+                continue;
             //System.out.println(word);
             WordType wordType = null;
             for (Map.Entry<String, WordType> wt : WordTypes.REGEXES.entrySet()) {

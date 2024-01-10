@@ -50,13 +50,13 @@ public class WordTypes {
             = new WordType("int-first-digit", "[1-9]");
 
     public static final WordType INT_WORD
-            = new WordType("integer", BEGINNING_OF_AN_INT_WORD.getRegex() + "[0-9]*|0");
+            = new WordType("int_word", BEGINNING_OF_AN_INT_WORD.getRegex() + "[0-9]*|0");
     public static final WordType DOUBLE_WORD
-            = new WordType("double", "(0|[1-9][0-9]*)\\.[0-9]*[1-9]");
+            = new WordType("double_word", "(0|[1-9][0-9]*)\\.[0-9]*[1-9]");
     public static final WordType CHAR_WORD
-            = new WordType("character", "\\'.\\'");
+            = new WordType("char_word", "\\'.\\'");
     public static final WordType STRING_WORD
-            = new WordType("string", "\\\".*\\\"");
+            = new WordType("string_word", "\\\".*\\\"");
 
     public static final WordType PLUS_WORD
             = new WordType("plus", "плус");
@@ -72,15 +72,15 @@ public class WordTypes {
     public static final WordType EQUALS_SIGN
             = new WordType("equals", "једнак");
     public static final WordType NOT_EQUALS_SIGN
-            = new WordType("not equals", "неједнак");
+            = new WordType("not_equals", "неједнак");
     public static final WordType LESS_THAN_SIGN
             = new WordType("less", "мањи");
     public static final WordType LESS_OR_EQUALS_SIGN
-            = new WordType("less or equals", "мањи једнак");
+            = new WordType("less_or_equals", "мањи једнак");
     public static final WordType GREATER_THAN_SIGN
             = new WordType("greater", "већи");
     public static final WordType GREATER_OR_EQUALS_SIGN
-            = new WordType("greater or equals", "већи једнак");
+            = new WordType("greater_or_equals", "већи једнак");
 
 
     public static final WordType LOGICAL_AND_WORD
@@ -91,21 +91,17 @@ public class WordTypes {
             = new WordType("lognot", "не");
 
     public static final WordType OPEN_CURLY_BRACKET_WORD
-            = new WordType("open curly bracket", "\\{");
+            = new WordType("open_curly_bracket", "\\{");
     public static final WordType CLOSED_CURLY_BRACKET_WORD
-            = new WordType("closed curly bracket", "\\}");
+            = new WordType("closed_curly_bracket", "\\}");
     public static final WordType OPEN_BRACKET_WORD
-            = new WordType("open bracket", "\\(");
+            = new WordType("open_bracket", "\\(");
     public static final WordType CLOSED_BRACKET_WORD
-            = new WordType("closed bracket", "\\)");
+            = new WordType("closed_bracket", "\\)");
     public static final WordType OPEN_SQUARE_BRACKET_WORD
-            = new WordType("open square bracket", "\\[");
+            = new WordType("open_square_bracket", "\\[");
     public static final WordType CLOSED_SQUARE_BRACKET_WORD
-            = new WordType("closed square bracket", "\\]");
-    public static final WordType QUOTATION_MARK_WORD
-            = new WordType("quotation mark", "\"");
-    public static final WordType APOSTROPHE_WORD
-            = new WordType("apostrophe", "\'");
+            = new WordType("closed_square_bracket", "\\]");
 
     public static final WordType FUNCTION_WORD
             = new WordType("function", "функција");
@@ -119,7 +115,7 @@ public class WordTypes {
             = new WordType("while", "заврни док");
 
     public static final WordType COMMAND_END_WORD
-            = new WordType("command end", ";");
+            = new WordType("command_end", ";");
 
     public static final WordType COMMA_WORD
             = new WordType("comma", ",");
@@ -150,8 +146,6 @@ public class WordTypes {
         putWordTypeToMap(CLOSED_BRACKET_WORD);
         putWordTypeToMap(OPEN_SQUARE_BRACKET_WORD);
         putWordTypeToMap(CLOSED_SQUARE_BRACKET_WORD);
-        putWordTypeToMap(QUOTATION_MARK_WORD);
-        putWordTypeToMap(APOSTROPHE_WORD);
 
         putWordTypeToMap(PLUS_WORD);
         putWordTypeToMap(MINUS_WORD);
