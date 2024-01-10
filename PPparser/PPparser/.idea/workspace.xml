@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d0c28f3-f3d1-4126-9bb8-6d5e42d56e1d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code1.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code1.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code10.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code10.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code11.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code11.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code13.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code13.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code15.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code15.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code18.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code18.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code2.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code2.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code21.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code21.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code6.vuja" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/codes/code6.vuja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/lexer/LexerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/lexer/LexerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/lexer/WordTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1/src/lexer/WordTypes.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/javaLexer/ProgramskiPrevodioci1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2aiju6Hq0U6OjxgKTAt60P4etNV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.codes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lexer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.parser.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\necav\PycharmProjects\PPparser\grammars" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.codes">
+    <configuration name="codes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PPparser" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pythonParser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythonParser/codes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lexer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PPparser" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pythonParser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythonParser/lexer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PPparser" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pythonParser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythonParser/parser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.codes" />
+        <item itemvalue="Python.parser" />
+        <item itemvalue="Python.lexer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d0c28f3-f3d1-4126-9bb8-6d5e42d56e1d" name="Changes" comment="" />
+      <created>1704808513012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704808513012</updated>
+      <workItem from="1704808517619" duration="17870000" />
+      <workItem from="1704834168525" duration="3561000" />
+      <workItem from="1704878278558" duration="422000" />
+      <workItem from="1704881775297" duration="1402000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PPparser$codes.coverage" NAME="codes Coverage Results" MODIFIED="1704882654094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonParser" />
+    <SUITE FILE_PATH="coverage/PPparser$lexer.coverage" NAME="lexer Coverage Results" MODIFIED="1704826156018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonParser" />
+    <SUITE FILE_PATH="coverage/PPparser$parser.coverage" NAME="parser Coverage Results" MODIFIED="1704828560702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pythonParser" />
+  </component>
+</project>

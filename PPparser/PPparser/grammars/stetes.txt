@@ -1,0 +1,3578 @@
+State 0
+
+    (0) S' -> . Program
+    (1) Program -> . MAIN_BEGIN Block MAIN_END
+    (2) Program -> . FunctionDeclaration Program
+    (55) FunctionDeclaration -> . FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+
+    MAIN_BEGIN      shift and go to State 2
+    FUNCTION        shift and go to State 4
+
+    Program                        shift and go to State 1
+    FunctionDeclaration            shift and go to State 3
+
+State 1
+
+    (0) S' -> Program .
+
+State 2
+
+    (1) Program -> MAIN_BEGIN . Block MAIN_END
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 5
+
+State 3
+
+    (2) Program -> FunctionDeclaration . Program
+    (1) Program -> . MAIN_BEGIN Block MAIN_END
+    (2) Program -> . FunctionDeclaration Program
+    (55) FunctionDeclaration -> . FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+
+    MAIN_BEGIN      shift and go to State 2
+    FUNCTION        shift and go to State 4
+
+    FunctionDeclaration            shift and go to State 3
+    Program                        shift and go to State 7
+
+State 4
+
+    (55) FunctionDeclaration -> FUNCTION . FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+    (56) FunctionName -> . NAME
+
+    NAME            shift and go to State 9
+
+    FunctionName                   shift and go to State 8
+
+State 5
+
+    (1) Program -> MAIN_BEGIN Block . MAIN_END
+
+    MAIN_END        shift and go to State 10
+
+
+State 6
+
+    (3) Block -> OPEN_CURLY_BRACKET . Statements CLOSED_CURLY_BRACKET
+    (4) Statements -> . Statement
+    (5) Statements -> . Statement Statements
+    (6) Statement -> . Declaration COMMAND_END
+    (7) Statement -> . StringDeclaration COMMAND_END
+    (8) Statement -> . Array COMMAND_END
+    (9) Statement -> . Assignment COMMAND_END
+    (10) Statement -> . PrintStatement COMMAND_END
+    (11) Statement -> . IfStatement
+    (12) Statement -> . FunctionDeclaration
+    (13) Statement -> . FunctionCall COMMAND_END
+    (14) Statement -> . ScanStatement COMMAND_END
+    (15) Statement -> . ForStatement
+    (16) Statement -> . WhileStatement
+    (17) Statement -> . ReturnStatement COMMAND_END
+    (20) Declaration -> . Type Variable
+    (21) Declaration -> . Type Variable ASSIGN Expression
+    (22) Declaration -> . Type Variable COMMA VariableList
+    (18) StringDeclaration -> . STRING QUOTATION_MARK STRING QUOTATION_MARK
+    (19) StringDeclaration -> . STRING APOSTROPHE STRING APOSTROPHE
+    (76) Array -> . ARRAY OPEN_SQUARE ArrayElements CLOSE_SQUARE
+    (31) Assignment -> . Variable ASSIGN Expression
+    (47) PrintStatement -> . PRINT Expression
+    (48) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block
+    (49) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block
+    (50) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements
+    (51) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block
+    (55) FunctionDeclaration -> . FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (80) ScanStatement -> . SCAN SCANDEST Variable
+    (66) ForStatement -> . FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block
+    (65) WhileStatement -> . WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block
+    (64) ReturnStatement -> . RETURN Expression
+    (23) Type -> . INT
+    (24) Type -> . DOUBLE
+    (25) Type -> . STRING
+    (26) Type -> . CHAR
+    (27) Type -> . ARRAY
+    (28) Variable -> . NAME
+    (56) FunctionName -> . NAME
+
+    STRING          shift and go to State 27
+    ARRAY           shift and go to State 28
+    PRINT           shift and go to State 29
+    IF              shift and go to State 30
+    FUNCTION        shift and go to State 4
+    SCAN            shift and go to State 32
+    FOR             shift and go to State 33
+    WHILE           shift and go to State 34
+    RETURN          shift and go to State 35
+    INT             shift and go to State 36
+    DOUBLE          shift and go to State 37
+    CHAR            shift and go to State 38
+    NAME            shift and go to State 39
+
+    Statements                     shift and go to State 11
+    Statement                      shift and go to State 12
+    Declaration                    shift and go to State 13
+    StringDeclaration              shift and go to State 14
+    Array                          shift and go to State 15
+    Assignment                     shift and go to State 16
+    PrintStatement                 shift and go to State 17
+    IfStatement                    shift and go to State 18
+    FunctionDeclaration            shift and go to State 19
+    FunctionCall                   shift and go to State 20
+    ScanStatement                  shift and go to State 21
+    ForStatement                   shift and go to State 22
+    WhileStatement                 shift and go to State 23
+    ReturnStatement                shift and go to State 24
+    Type                           shift and go to State 25
+    Variable                       shift and go to State 26
+    FunctionName                   shift and go to State 31
+
+State 7
+
+    (2) Program -> FunctionDeclaration Program .
+
+    $end            reduce using rule 2 (Program -> FunctionDeclaration Program .)
+
+
+State 8
+
+    (55) FunctionDeclaration -> FUNCTION FunctionName . OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+
+    OPEN_BRACKET    shift and go to State 40
+
+
+State 9
+
+    (56) FunctionName -> NAME .
+
+    OPEN_BRACKET    reduce using rule 56 (FunctionName -> NAME .)
+
+
+State 10
+
+    (1) Program -> MAIN_BEGIN Block MAIN_END .
+
+    $end            reduce using rule 1 (Program -> MAIN_BEGIN Block MAIN_END .)
+
+
+State 11
+
+    (3) Block -> OPEN_CURLY_BRACKET Statements . CLOSED_CURLY_BRACKET
+
+    CLOSED_CURLY_BRACKET shift and go to State 41
+
+
+State 12
+
+    (4) Statements -> Statement .
+    (5) Statements -> Statement . Statements
+    (4) Statements -> . Statement
+    (5) Statements -> . Statement Statements
+    (6) Statement -> . Declaration COMMAND_END
+    (7) Statement -> . StringDeclaration COMMAND_END
+    (8) Statement -> . Array COMMAND_END
+    (9) Statement -> . Assignment COMMAND_END
+    (10) Statement -> . PrintStatement COMMAND_END
+    (11) Statement -> . IfStatement
+    (12) Statement -> . FunctionDeclaration
+    (13) Statement -> . FunctionCall COMMAND_END
+    (14) Statement -> . ScanStatement COMMAND_END
+    (15) Statement -> . ForStatement
+    (16) Statement -> . WhileStatement
+    (17) Statement -> . ReturnStatement COMMAND_END
+    (20) Declaration -> . Type Variable
+    (21) Declaration -> . Type Variable ASSIGN Expression
+    (22) Declaration -> . Type Variable COMMA VariableList
+    (18) StringDeclaration -> . STRING QUOTATION_MARK STRING QUOTATION_MARK
+    (19) StringDeclaration -> . STRING APOSTROPHE STRING APOSTROPHE
+    (76) Array -> . ARRAY OPEN_SQUARE ArrayElements CLOSE_SQUARE
+    (31) Assignment -> . Variable ASSIGN Expression
+    (47) PrintStatement -> . PRINT Expression
+    (48) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block
+    (49) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block
+    (50) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements
+    (51) IfStatement -> . IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block
+    (55) FunctionDeclaration -> . FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (80) ScanStatement -> . SCAN SCANDEST Variable
+    (66) ForStatement -> . FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block
+    (65) WhileStatement -> . WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block
+    (64) ReturnStatement -> . RETURN Expression
+    (23) Type -> . INT
+    (24) Type -> . DOUBLE
+    (25) Type -> . STRING
+    (26) Type -> . CHAR
+    (27) Type -> . ARRAY
+    (28) Variable -> . NAME
+    (56) FunctionName -> . NAME
+
+    CLOSED_CURLY_BRACKET reduce using rule 4 (Statements -> Statement .)
+    STRING          shift and go to State 27
+    ARRAY           shift and go to State 28
+    PRINT           shift and go to State 29
+    IF              shift and go to State 30
+    FUNCTION        shift and go to State 4
+    SCAN            shift and go to State 32
+    FOR             shift and go to State 33
+    WHILE           shift and go to State 34
+    RETURN          shift and go to State 35
+    INT             shift and go to State 36
+    DOUBLE          shift and go to State 37
+    CHAR            shift and go to State 38
+    NAME            shift and go to State 39
+
+    Statement                      shift and go to State 12
+    Statements                     shift and go to State 42
+    Declaration                    shift and go to State 13
+    StringDeclaration              shift and go to State 14
+    Array                          shift and go to State 15
+    Assignment                     shift and go to State 16
+    PrintStatement                 shift and go to State 17
+    IfStatement                    shift and go to State 18
+    FunctionDeclaration            shift and go to State 19
+    FunctionCall                   shift and go to State 20
+    ScanStatement                  shift and go to State 21
+    ForStatement                   shift and go to State 22
+    WhileStatement                 shift and go to State 23
+    ReturnStatement                shift and go to State 24
+    Type                           shift and go to State 25
+    Variable                       shift and go to State 26
+    FunctionName                   shift and go to State 31
+
+State 13
+
+    (6) Statement -> Declaration . COMMAND_END
+
+    COMMAND_END     shift and go to State 43
+
+
+State 14
+
+    (7) Statement -> StringDeclaration . COMMAND_END
+
+    COMMAND_END     shift and go to State 44
+
+
+State 15
+
+    (8) Statement -> Array . COMMAND_END
+
+    COMMAND_END     shift and go to State 45
+
+
+State 16
+
+    (9) Statement -> Assignment . COMMAND_END
+
+    COMMAND_END     shift and go to State 46
+
+
+State 17
+
+    (10) Statement -> PrintStatement . COMMAND_END
+
+    COMMAND_END     shift and go to State 47
+
+
+State 18
+
+    (11) Statement -> IfStatement .
+
+    STRING          reduce using rule 11 (Statement -> IfStatement .)
+    ARRAY           reduce using rule 11 (Statement -> IfStatement .)
+    PRINT           reduce using rule 11 (Statement -> IfStatement .)
+    IF              reduce using rule 11 (Statement -> IfStatement .)
+    FUNCTION        reduce using rule 11 (Statement -> IfStatement .)
+    SCAN            reduce using rule 11 (Statement -> IfStatement .)
+    FOR             reduce using rule 11 (Statement -> IfStatement .)
+    WHILE           reduce using rule 11 (Statement -> IfStatement .)
+    RETURN          reduce using rule 11 (Statement -> IfStatement .)
+    INT             reduce using rule 11 (Statement -> IfStatement .)
+    DOUBLE          reduce using rule 11 (Statement -> IfStatement .)
+    CHAR            reduce using rule 11 (Statement -> IfStatement .)
+    NAME            reduce using rule 11 (Statement -> IfStatement .)
+    CLOSED_CURLY_BRACKET reduce using rule 11 (Statement -> IfStatement .)
+
+
+State 19
+
+    (12) Statement -> FunctionDeclaration .
+
+    STRING          reduce using rule 12 (Statement -> FunctionDeclaration .)
+    ARRAY           reduce using rule 12 (Statement -> FunctionDeclaration .)
+    PRINT           reduce using rule 12 (Statement -> FunctionDeclaration .)
+    IF              reduce using rule 12 (Statement -> FunctionDeclaration .)
+    FUNCTION        reduce using rule 12 (Statement -> FunctionDeclaration .)
+    SCAN            reduce using rule 12 (Statement -> FunctionDeclaration .)
+    FOR             reduce using rule 12 (Statement -> FunctionDeclaration .)
+    WHILE           reduce using rule 12 (Statement -> FunctionDeclaration .)
+    RETURN          reduce using rule 12 (Statement -> FunctionDeclaration .)
+    INT             reduce using rule 12 (Statement -> FunctionDeclaration .)
+    DOUBLE          reduce using rule 12 (Statement -> FunctionDeclaration .)
+    CHAR            reduce using rule 12 (Statement -> FunctionDeclaration .)
+    NAME            reduce using rule 12 (Statement -> FunctionDeclaration .)
+    CLOSED_CURLY_BRACKET reduce using rule 12 (Statement -> FunctionDeclaration .)
+
+
+State 20
+
+    (13) Statement -> FunctionCall . COMMAND_END
+
+    COMMAND_END     shift and go to State 48
+
+
+State 21
+
+    (14) Statement -> ScanStatement . COMMAND_END
+
+    COMMAND_END     shift and go to State 49
+
+
+State 22
+
+    (15) Statement -> ForStatement .
+
+    STRING          reduce using rule 15 (Statement -> ForStatement .)
+    ARRAY           reduce using rule 15 (Statement -> ForStatement .)
+    PRINT           reduce using rule 15 (Statement -> ForStatement .)
+    IF              reduce using rule 15 (Statement -> ForStatement .)
+    FUNCTION        reduce using rule 15 (Statement -> ForStatement .)
+    SCAN            reduce using rule 15 (Statement -> ForStatement .)
+    FOR             reduce using rule 15 (Statement -> ForStatement .)
+    WHILE           reduce using rule 15 (Statement -> ForStatement .)
+    RETURN          reduce using rule 15 (Statement -> ForStatement .)
+    INT             reduce using rule 15 (Statement -> ForStatement .)
+    DOUBLE          reduce using rule 15 (Statement -> ForStatement .)
+    CHAR            reduce using rule 15 (Statement -> ForStatement .)
+    NAME            reduce using rule 15 (Statement -> ForStatement .)
+    CLOSED_CURLY_BRACKET reduce using rule 15 (Statement -> ForStatement .)
+
+
+State 23
+
+    (16) Statement -> WhileStatement .
+
+    STRING          reduce using rule 16 (Statement -> WhileStatement .)
+    ARRAY           reduce using rule 16 (Statement -> WhileStatement .)
+    PRINT           reduce using rule 16 (Statement -> WhileStatement .)
+    IF              reduce using rule 16 (Statement -> WhileStatement .)
+    FUNCTION        reduce using rule 16 (Statement -> WhileStatement .)
+    SCAN            reduce using rule 16 (Statement -> WhileStatement .)
+    FOR             reduce using rule 16 (Statement -> WhileStatement .)
+    WHILE           reduce using rule 16 (Statement -> WhileStatement .)
+    RETURN          reduce using rule 16 (Statement -> WhileStatement .)
+    INT             reduce using rule 16 (Statement -> WhileStatement .)
+    DOUBLE          reduce using rule 16 (Statement -> WhileStatement .)
+    CHAR            reduce using rule 16 (Statement -> WhileStatement .)
+    NAME            reduce using rule 16 (Statement -> WhileStatement .)
+    CLOSED_CURLY_BRACKET reduce using rule 16 (Statement -> WhileStatement .)
+
+
+State 24
+
+    (17) Statement -> ReturnStatement . COMMAND_END
+
+    COMMAND_END     shift and go to State 50
+
+
+State 25
+
+    (20) Declaration -> Type . Variable
+    (21) Declaration -> Type . Variable ASSIGN Expression
+    (22) Declaration -> Type . Variable COMMA VariableList
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Variable                       shift and go to State 51
+
+State 26
+
+    (31) Assignment -> Variable . ASSIGN Expression
+
+    ASSIGN          shift and go to State 53
+
+
+State 27
+
+    (18) StringDeclaration -> STRING . QUOTATION_MARK STRING QUOTATION_MARK
+    (19) StringDeclaration -> STRING . APOSTROPHE STRING APOSTROPHE
+    (25) Type -> STRING .
+
+    QUOTATION_MARK  shift and go to State 54
+    APOSTROPHE      shift and go to State 55
+    NAME            reduce using rule 25 (Type -> STRING .)
+
+
+State 28
+
+    (76) Array -> ARRAY . OPEN_SQUARE ArrayElements CLOSE_SQUARE
+    (27) Type -> ARRAY .
+
+    OPEN_SQUARE     shift and go to State 56
+    NAME            reduce using rule 27 (Type -> ARRAY .)
+
+
+State 29
+
+    (47) PrintStatement -> PRINT . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 57
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 30
+
+    (48) IfStatement -> IF . OPEN_BRACKET Expression CLOSED_BRACKET Block
+    (49) IfStatement -> IF . OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block
+    (50) IfStatement -> IF . OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements
+    (51) IfStatement -> IF . OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block
+
+    OPEN_BRACKET    shift and go to State 69
+
+
+State 31
+
+    (60) FunctionCall -> FunctionName . OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+
+    OPEN_BRACKET    shift and go to State 70
+
+
+State 32
+
+    (80) ScanStatement -> SCAN . SCANDEST Variable
+
+    SCANDEST        shift and go to State 71
+
+
+State 33
+
+    (66) ForStatement -> FOR . OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block
+
+    OPEN_BRACKET    shift and go to State 72
+
+
+State 34
+
+    (65) WhileStatement -> WHILE . OPEN_BRACKET Expression CLOSED_BRACKET Block
+
+    OPEN_BRACKET    shift and go to State 73
+
+
+State 35
+
+    (64) ReturnStatement -> RETURN . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 74
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 36
+
+    (23) Type -> INT .
+
+    NAME            reduce using rule 23 (Type -> INT .)
+
+
+State 37
+
+    (24) Type -> DOUBLE .
+
+    NAME            reduce using rule 24 (Type -> DOUBLE .)
+
+
+State 38
+
+    (26) Type -> CHAR .
+
+    NAME            reduce using rule 26 (Type -> CHAR .)
+
+
+State 39
+
+    (28) Variable -> NAME .
+    (56) FunctionName -> NAME .
+
+    ASSIGN          reduce using rule 28 (Variable -> NAME .)
+    OPEN_BRACKET    reduce using rule 56 (FunctionName -> NAME .)
+
+
+State 40
+
+    (55) FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET . FunctionParameters CLOSED_BRACKET Block
+    (57) FunctionParameters -> . FunctionParameter
+    (58) FunctionParameters -> . FunctionParameter COMMA FunctionParameters
+    (59) FunctionParameter -> . Type Variable
+    (23) Type -> . INT
+    (24) Type -> . DOUBLE
+    (25) Type -> . STRING
+    (26) Type -> . CHAR
+    (27) Type -> . ARRAY
+
+    INT             shift and go to State 36
+    DOUBLE          shift and go to State 37
+    STRING          shift and go to State 78
+    CHAR            shift and go to State 38
+    ARRAY           shift and go to State 79
+
+    FunctionParameters             shift and go to State 75
+    FunctionParameter              shift and go to State 76
+    Type                           shift and go to State 77
+
+State 41
+
+    (3) Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .
+
+    MAIN_END        reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    MAIN_BEGIN      reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    FUNCTION        reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    STRING          reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    ARRAY           reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    PRINT           reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    IF              reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    SCAN            reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    FOR             reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    WHILE           reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    RETURN          reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    INT             reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    DOUBLE          reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    CHAR            reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    NAME            reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    CLOSED_CURLY_BRACKET reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    ELSE            reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+    ELIF            reduce using rule 3 (Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET .)
+
+
+State 42
+
+    (5) Statements -> Statement Statements .
+
+    CLOSED_CURLY_BRACKET reduce using rule 5 (Statements -> Statement Statements .)
+
+
+State 43
+
+    (6) Statement -> Declaration COMMAND_END .
+
+    STRING          reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    ARRAY           reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    PRINT           reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    IF              reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    FUNCTION        reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    SCAN            reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    FOR             reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    WHILE           reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    RETURN          reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    INT             reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    DOUBLE          reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    CHAR            reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    NAME            reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 6 (Statement -> Declaration COMMAND_END .)
+
+
+State 44
+
+    (7) Statement -> StringDeclaration COMMAND_END .
+
+    STRING          reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    ARRAY           reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    PRINT           reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    IF              reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    FUNCTION        reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    SCAN            reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    FOR             reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    WHILE           reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    RETURN          reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    INT             reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    DOUBLE          reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    CHAR            reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    NAME            reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 7 (Statement -> StringDeclaration COMMAND_END .)
+
+
+State 45
+
+    (8) Statement -> Array COMMAND_END .
+
+    STRING          reduce using rule 8 (Statement -> Array COMMAND_END .)
+    ARRAY           reduce using rule 8 (Statement -> Array COMMAND_END .)
+    PRINT           reduce using rule 8 (Statement -> Array COMMAND_END .)
+    IF              reduce using rule 8 (Statement -> Array COMMAND_END .)
+    FUNCTION        reduce using rule 8 (Statement -> Array COMMAND_END .)
+    SCAN            reduce using rule 8 (Statement -> Array COMMAND_END .)
+    FOR             reduce using rule 8 (Statement -> Array COMMAND_END .)
+    WHILE           reduce using rule 8 (Statement -> Array COMMAND_END .)
+    RETURN          reduce using rule 8 (Statement -> Array COMMAND_END .)
+    INT             reduce using rule 8 (Statement -> Array COMMAND_END .)
+    DOUBLE          reduce using rule 8 (Statement -> Array COMMAND_END .)
+    CHAR            reduce using rule 8 (Statement -> Array COMMAND_END .)
+    NAME            reduce using rule 8 (Statement -> Array COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 8 (Statement -> Array COMMAND_END .)
+
+
+State 46
+
+    (9) Statement -> Assignment COMMAND_END .
+
+    STRING          reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    ARRAY           reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    PRINT           reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    IF              reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    FUNCTION        reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    SCAN            reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    FOR             reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    WHILE           reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    RETURN          reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    INT             reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    DOUBLE          reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    CHAR            reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    NAME            reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 9 (Statement -> Assignment COMMAND_END .)
+
+
+State 47
+
+    (10) Statement -> PrintStatement COMMAND_END .
+
+    STRING          reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    ARRAY           reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    PRINT           reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    IF              reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    FUNCTION        reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    SCAN            reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    FOR             reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    WHILE           reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    RETURN          reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    INT             reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    DOUBLE          reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    CHAR            reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    NAME            reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 10 (Statement -> PrintStatement COMMAND_END .)
+
+
+State 48
+
+    (13) Statement -> FunctionCall COMMAND_END .
+
+    STRING          reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    ARRAY           reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    PRINT           reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    IF              reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    FUNCTION        reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    SCAN            reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    FOR             reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    WHILE           reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    RETURN          reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    INT             reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    DOUBLE          reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    CHAR            reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    NAME            reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 13 (Statement -> FunctionCall COMMAND_END .)
+
+
+State 49
+
+    (14) Statement -> ScanStatement COMMAND_END .
+
+    STRING          reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    ARRAY           reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    PRINT           reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    IF              reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    FUNCTION        reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    SCAN            reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    FOR             reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    WHILE           reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    RETURN          reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    INT             reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    DOUBLE          reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    CHAR            reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    NAME            reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 14 (Statement -> ScanStatement COMMAND_END .)
+
+
+State 50
+
+    (17) Statement -> ReturnStatement COMMAND_END .
+
+    STRING          reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    ARRAY           reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    PRINT           reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    IF              reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    FUNCTION        reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    SCAN            reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    FOR             reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    WHILE           reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    RETURN          reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    INT             reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    DOUBLE          reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    CHAR            reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    NAME            reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+    CLOSED_CURLY_BRACKET reduce using rule 17 (Statement -> ReturnStatement COMMAND_END .)
+
+
+State 51
+
+    (20) Declaration -> Type Variable .
+    (21) Declaration -> Type Variable . ASSIGN Expression
+    (22) Declaration -> Type Variable . COMMA VariableList
+
+    COMMAND_END     reduce using rule 20 (Declaration -> Type Variable .)
+    ASSIGN          shift and go to State 80
+    COMMA           shift and go to State 81
+
+
+State 52
+
+    (28) Variable -> NAME .
+
+    ASSIGN          reduce using rule 28 (Variable -> NAME .)
+    COMMA           reduce using rule 28 (Variable -> NAME .)
+    COMMAND_END     reduce using rule 28 (Variable -> NAME .)
+    CLOSED_BRACKET  reduce using rule 28 (Variable -> NAME .)
+
+
+State 53
+
+    (31) Assignment -> Variable ASSIGN . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 82
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 54
+
+    (18) StringDeclaration -> STRING QUOTATION_MARK . STRING QUOTATION_MARK
+
+    STRING          shift and go to State 83
+
+
+State 55
+
+    (19) StringDeclaration -> STRING APOSTROPHE . STRING APOSTROPHE
+
+    STRING          shift and go to State 84
+
+
+State 56
+
+    (76) Array -> ARRAY OPEN_SQUARE . ArrayElements CLOSE_SQUARE
+    (77) ArrayElements -> . ArrayElement
+    (78) ArrayElements -> . ArrayElement COMMA ArrayElements
+    (79) ArrayElement -> . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    ArrayElements                  shift and go to State 85
+    ArrayElement                   shift and go to State 86
+    Expression                     shift and go to State 87
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 57
+
+    (47) PrintStatement -> PRINT Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMAND_END     reduce using rule 47 (PrintStatement -> PRINT Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 58
+
+    (32) Expression -> Term .
+    (36) Term -> Term . TIMES Factor
+    (37) Term -> Term . DIV Factor
+    (38) Term -> Term . MOD Factor
+
+    PLUS            reduce using rule 32 (Expression -> Term .)
+    MINUS           reduce using rule 32 (Expression -> Term .)
+    LOGAND          reduce using rule 32 (Expression -> Term .)
+    LOGOR           reduce using rule 32 (Expression -> Term .)
+    EQUALS          reduce using rule 32 (Expression -> Term .)
+    LESS_OR_EQUAL   reduce using rule 32 (Expression -> Term .)
+    GREATER_OR_EQUAL reduce using rule 32 (Expression -> Term .)
+    LESS            reduce using rule 32 (Expression -> Term .)
+    GREATER         reduce using rule 32 (Expression -> Term .)
+    NOT_EQUAL       reduce using rule 32 (Expression -> Term .)
+    COMMAND_END     reduce using rule 32 (Expression -> Term .)
+    CLOSED_BRACKET  reduce using rule 32 (Expression -> Term .)
+    COMMA           reduce using rule 32 (Expression -> Term .)
+    CLOSE_SQUARE    reduce using rule 32 (Expression -> Term .)
+    TIMES           shift and go to State 98
+    DIV             shift and go to State 99
+    MOD             shift and go to State 100
+
+
+State 59
+
+    (69) Expression -> LOGNOT . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 101
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 60
+
+    (35) Term -> Factor .
+
+    TIMES           reduce using rule 35 (Term -> Factor .)
+    DIV             reduce using rule 35 (Term -> Factor .)
+    MOD             reduce using rule 35 (Term -> Factor .)
+    PLUS            reduce using rule 35 (Term -> Factor .)
+    MINUS           reduce using rule 35 (Term -> Factor .)
+    LOGAND          reduce using rule 35 (Term -> Factor .)
+    LOGOR           reduce using rule 35 (Term -> Factor .)
+    EQUALS          reduce using rule 35 (Term -> Factor .)
+    LESS_OR_EQUAL   reduce using rule 35 (Term -> Factor .)
+    GREATER_OR_EQUAL reduce using rule 35 (Term -> Factor .)
+    LESS            reduce using rule 35 (Term -> Factor .)
+    GREATER         reduce using rule 35 (Term -> Factor .)
+    NOT_EQUAL       reduce using rule 35 (Term -> Factor .)
+    COMMAND_END     reduce using rule 35 (Term -> Factor .)
+    CLOSED_BRACKET  reduce using rule 35 (Term -> Factor .)
+    COMMA           reduce using rule 35 (Term -> Factor .)
+    CLOSE_SQUARE    reduce using rule 35 (Term -> Factor .)
+
+
+State 61
+
+    (39) Factor -> INT_WORD .
+
+    TIMES           reduce using rule 39 (Factor -> INT_WORD .)
+    DIV             reduce using rule 39 (Factor -> INT_WORD .)
+    MOD             reduce using rule 39 (Factor -> INT_WORD .)
+    PLUS            reduce using rule 39 (Factor -> INT_WORD .)
+    MINUS           reduce using rule 39 (Factor -> INT_WORD .)
+    LOGAND          reduce using rule 39 (Factor -> INT_WORD .)
+    LOGOR           reduce using rule 39 (Factor -> INT_WORD .)
+    EQUALS          reduce using rule 39 (Factor -> INT_WORD .)
+    LESS_OR_EQUAL   reduce using rule 39 (Factor -> INT_WORD .)
+    GREATER_OR_EQUAL reduce using rule 39 (Factor -> INT_WORD .)
+    LESS            reduce using rule 39 (Factor -> INT_WORD .)
+    GREATER         reduce using rule 39 (Factor -> INT_WORD .)
+    NOT_EQUAL       reduce using rule 39 (Factor -> INT_WORD .)
+    COMMAND_END     reduce using rule 39 (Factor -> INT_WORD .)
+    CLOSED_BRACKET  reduce using rule 39 (Factor -> INT_WORD .)
+    COMMA           reduce using rule 39 (Factor -> INT_WORD .)
+    CLOSE_SQUARE    reduce using rule 39 (Factor -> INT_WORD .)
+
+
+State 62
+
+    (40) Factor -> DOUBLE_WORD .
+
+    TIMES           reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    DIV             reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    MOD             reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    PLUS            reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    MINUS           reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    LOGAND          reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    LOGOR           reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    EQUALS          reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    LESS_OR_EQUAL   reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    GREATER_OR_EQUAL reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    LESS            reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    GREATER         reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    NOT_EQUAL       reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    COMMAND_END     reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    CLOSED_BRACKET  reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    COMMA           reduce using rule 40 (Factor -> DOUBLE_WORD .)
+    CLOSE_SQUARE    reduce using rule 40 (Factor -> DOUBLE_WORD .)
+
+
+State 63
+
+    (41) Factor -> STRING_WORD .
+
+    TIMES           reduce using rule 41 (Factor -> STRING_WORD .)
+    DIV             reduce using rule 41 (Factor -> STRING_WORD .)
+    MOD             reduce using rule 41 (Factor -> STRING_WORD .)
+    PLUS            reduce using rule 41 (Factor -> STRING_WORD .)
+    MINUS           reduce using rule 41 (Factor -> STRING_WORD .)
+    LOGAND          reduce using rule 41 (Factor -> STRING_WORD .)
+    LOGOR           reduce using rule 41 (Factor -> STRING_WORD .)
+    EQUALS          reduce using rule 41 (Factor -> STRING_WORD .)
+    LESS_OR_EQUAL   reduce using rule 41 (Factor -> STRING_WORD .)
+    GREATER_OR_EQUAL reduce using rule 41 (Factor -> STRING_WORD .)
+    LESS            reduce using rule 41 (Factor -> STRING_WORD .)
+    GREATER         reduce using rule 41 (Factor -> STRING_WORD .)
+    NOT_EQUAL       reduce using rule 41 (Factor -> STRING_WORD .)
+    COMMAND_END     reduce using rule 41 (Factor -> STRING_WORD .)
+    CLOSED_BRACKET  reduce using rule 41 (Factor -> STRING_WORD .)
+    COMMA           reduce using rule 41 (Factor -> STRING_WORD .)
+    CLOSE_SQUARE    reduce using rule 41 (Factor -> STRING_WORD .)
+
+
+State 64
+
+    (42) Factor -> CHAR_WORD .
+
+    TIMES           reduce using rule 42 (Factor -> CHAR_WORD .)
+    DIV             reduce using rule 42 (Factor -> CHAR_WORD .)
+    MOD             reduce using rule 42 (Factor -> CHAR_WORD .)
+    PLUS            reduce using rule 42 (Factor -> CHAR_WORD .)
+    MINUS           reduce using rule 42 (Factor -> CHAR_WORD .)
+    LOGAND          reduce using rule 42 (Factor -> CHAR_WORD .)
+    LOGOR           reduce using rule 42 (Factor -> CHAR_WORD .)
+    EQUALS          reduce using rule 42 (Factor -> CHAR_WORD .)
+    LESS_OR_EQUAL   reduce using rule 42 (Factor -> CHAR_WORD .)
+    GREATER_OR_EQUAL reduce using rule 42 (Factor -> CHAR_WORD .)
+    LESS            reduce using rule 42 (Factor -> CHAR_WORD .)
+    GREATER         reduce using rule 42 (Factor -> CHAR_WORD .)
+    NOT_EQUAL       reduce using rule 42 (Factor -> CHAR_WORD .)
+    COMMAND_END     reduce using rule 42 (Factor -> CHAR_WORD .)
+    CLOSED_BRACKET  reduce using rule 42 (Factor -> CHAR_WORD .)
+    COMMA           reduce using rule 42 (Factor -> CHAR_WORD .)
+    CLOSE_SQUARE    reduce using rule 42 (Factor -> CHAR_WORD .)
+
+
+State 65
+
+    (43) Factor -> NAME_WORD .
+
+    TIMES           reduce using rule 43 (Factor -> NAME_WORD .)
+    DIV             reduce using rule 43 (Factor -> NAME_WORD .)
+    MOD             reduce using rule 43 (Factor -> NAME_WORD .)
+    PLUS            reduce using rule 43 (Factor -> NAME_WORD .)
+    MINUS           reduce using rule 43 (Factor -> NAME_WORD .)
+    LOGAND          reduce using rule 43 (Factor -> NAME_WORD .)
+    LOGOR           reduce using rule 43 (Factor -> NAME_WORD .)
+    EQUALS          reduce using rule 43 (Factor -> NAME_WORD .)
+    LESS_OR_EQUAL   reduce using rule 43 (Factor -> NAME_WORD .)
+    GREATER_OR_EQUAL reduce using rule 43 (Factor -> NAME_WORD .)
+    LESS            reduce using rule 43 (Factor -> NAME_WORD .)
+    GREATER         reduce using rule 43 (Factor -> NAME_WORD .)
+    NOT_EQUAL       reduce using rule 43 (Factor -> NAME_WORD .)
+    COMMAND_END     reduce using rule 43 (Factor -> NAME_WORD .)
+    CLOSED_BRACKET  reduce using rule 43 (Factor -> NAME_WORD .)
+    COMMA           reduce using rule 43 (Factor -> NAME_WORD .)
+    CLOSE_SQUARE    reduce using rule 43 (Factor -> NAME_WORD .)
+
+
+State 66
+
+    (44) Factor -> OPEN_BRACKET . Expression CLOSED_BRACKET
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 102
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 67
+
+    (45) NAME_WORD -> NAME .
+    (56) FunctionName -> NAME .
+
+    TIMES           reduce using rule 45 (NAME_WORD -> NAME .)
+    DIV             reduce using rule 45 (NAME_WORD -> NAME .)
+    MOD             reduce using rule 45 (NAME_WORD -> NAME .)
+    PLUS            reduce using rule 45 (NAME_WORD -> NAME .)
+    MINUS           reduce using rule 45 (NAME_WORD -> NAME .)
+    LOGAND          reduce using rule 45 (NAME_WORD -> NAME .)
+    LOGOR           reduce using rule 45 (NAME_WORD -> NAME .)
+    EQUALS          reduce using rule 45 (NAME_WORD -> NAME .)
+    LESS_OR_EQUAL   reduce using rule 45 (NAME_WORD -> NAME .)
+    GREATER_OR_EQUAL reduce using rule 45 (NAME_WORD -> NAME .)
+    LESS            reduce using rule 45 (NAME_WORD -> NAME .)
+    GREATER         reduce using rule 45 (NAME_WORD -> NAME .)
+    NOT_EQUAL       reduce using rule 45 (NAME_WORD -> NAME .)
+    COMMAND_END     reduce using rule 45 (NAME_WORD -> NAME .)
+    CLOSED_BRACKET  reduce using rule 45 (NAME_WORD -> NAME .)
+    COMMA           reduce using rule 45 (NAME_WORD -> NAME .)
+    CLOSE_SQUARE    reduce using rule 45 (NAME_WORD -> NAME .)
+    OPEN_BRACKET    reduce using rule 56 (FunctionName -> NAME .)
+
+
+State 68
+
+    (46) NAME_WORD -> FunctionCall .
+
+    TIMES           reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    DIV             reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    MOD             reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    PLUS            reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    MINUS           reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    LOGAND          reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    LOGOR           reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    EQUALS          reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    LESS_OR_EQUAL   reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    GREATER_OR_EQUAL reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    LESS            reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    GREATER         reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    NOT_EQUAL       reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    COMMAND_END     reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    CLOSED_BRACKET  reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    COMMA           reduce using rule 46 (NAME_WORD -> FunctionCall .)
+    CLOSE_SQUARE    reduce using rule 46 (NAME_WORD -> FunctionCall .)
+
+
+State 69
+
+    (48) IfStatement -> IF OPEN_BRACKET . Expression CLOSED_BRACKET Block
+    (49) IfStatement -> IF OPEN_BRACKET . Expression CLOSED_BRACKET Block ELSE Block
+    (50) IfStatement -> IF OPEN_BRACKET . Expression CLOSED_BRACKET Block ElifStatements
+    (51) IfStatement -> IF OPEN_BRACKET . Expression CLOSED_BRACKET Block ElifStatements ELSE Block
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 103
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 70
+
+    (60) FunctionCall -> FunctionName OPEN_BRACKET . FunctionArguments CLOSED_BRACKET
+    (61) FunctionArguments -> . FunctionArgument
+    (62) FunctionArguments -> . FunctionArgument COMMA FunctionArguments
+    (63) FunctionArgument -> . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    FunctionName                   shift and go to State 31
+    FunctionArguments              shift and go to State 104
+    FunctionArgument               shift and go to State 105
+    Expression                     shift and go to State 106
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+
+State 71
+
+    (80) ScanStatement -> SCAN SCANDEST . Variable
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Variable                       shift and go to State 107
+
+State 72
+
+    (66) ForStatement -> FOR OPEN_BRACKET . Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block
+    (31) Assignment -> . Variable ASSIGN Expression
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Assignment                     shift and go to State 108
+    Variable                       shift and go to State 26
+
+State 73
+
+    (65) WhileStatement -> WHILE OPEN_BRACKET . Expression CLOSED_BRACKET Block
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 109
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 74
+
+    (64) ReturnStatement -> RETURN Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMAND_END     reduce using rule 64 (ReturnStatement -> RETURN Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 75
+
+    (55) FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters . CLOSED_BRACKET Block
+
+    CLOSED_BRACKET  shift and go to State 110
+
+
+State 76
+
+    (57) FunctionParameters -> FunctionParameter .
+    (58) FunctionParameters -> FunctionParameter . COMMA FunctionParameters
+
+    CLOSED_BRACKET  reduce using rule 57 (FunctionParameters -> FunctionParameter .)
+    COMMA           shift and go to State 111
+
+
+State 77
+
+    (59) FunctionParameter -> Type . Variable
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Variable                       shift and go to State 112
+
+State 78
+
+    (25) Type -> STRING .
+
+    NAME            reduce using rule 25 (Type -> STRING .)
+
+
+State 79
+
+    (27) Type -> ARRAY .
+
+    NAME            reduce using rule 27 (Type -> ARRAY .)
+
+
+State 80
+
+    (21) Declaration -> Type Variable ASSIGN . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 113
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 81
+
+    (22) Declaration -> Type Variable COMMA . VariableList
+    (29) VariableList -> . Variable
+    (30) VariableList -> . Variable COMMA VariableList
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Variable                       shift and go to State 114
+    VariableList                   shift and go to State 115
+
+State 82
+
+    (31) Assignment -> Variable ASSIGN Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMAND_END     reduce using rule 31 (Assignment -> Variable ASSIGN Expression .)
+    CLOSED_BRACKET  reduce using rule 31 (Assignment -> Variable ASSIGN Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 83
+
+    (18) StringDeclaration -> STRING QUOTATION_MARK STRING . QUOTATION_MARK
+
+    QUOTATION_MARK  shift and go to State 116
+
+
+State 84
+
+    (19) StringDeclaration -> STRING APOSTROPHE STRING . APOSTROPHE
+
+    APOSTROPHE      shift and go to State 117
+
+
+State 85
+
+    (76) Array -> ARRAY OPEN_SQUARE ArrayElements . CLOSE_SQUARE
+
+    CLOSE_SQUARE    shift and go to State 118
+
+
+State 86
+
+    (77) ArrayElements -> ArrayElement .
+    (78) ArrayElements -> ArrayElement . COMMA ArrayElements
+
+    CLOSE_SQUARE    reduce using rule 77 (ArrayElements -> ArrayElement .)
+    COMMA           shift and go to State 119
+
+
+State 87
+
+    (79) ArrayElement -> Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMA           reduce using rule 79 (ArrayElement -> Expression .)
+    CLOSE_SQUARE    reduce using rule 79 (ArrayElement -> Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 88
+
+    (33) Expression -> Expression PLUS . Term
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Term                           shift and go to State 120
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 89
+
+    (34) Expression -> Expression MINUS . Term
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Term                           shift and go to State 121
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 90
+
+    (67) Expression -> Expression LOGAND . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 122
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 91
+
+    (68) Expression -> Expression LOGOR . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 123
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 92
+
+    (70) Expression -> Expression EQUALS . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 124
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 93
+
+    (71) Expression -> Expression LESS_OR_EQUAL . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 125
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 94
+
+    (72) Expression -> Expression GREATER_OR_EQUAL . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 126
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 95
+
+    (73) Expression -> Expression LESS . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 127
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 96
+
+    (74) Expression -> Expression GREATER . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 128
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 97
+
+    (75) Expression -> Expression NOT_EQUAL . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 129
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 98
+
+    (36) Term -> Term TIMES . Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Factor                         shift and go to State 130
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 99
+
+    (37) Term -> Term DIV . Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Factor                         shift and go to State 131
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 100
+
+    (38) Term -> Term MOD . Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Factor                         shift and go to State 132
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 101
+
+    (69) Expression -> LOGNOT Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 69 (Expression -> LOGNOT Expression .)
+    CLOSED_BRACKET  reduce using rule 69 (Expression -> LOGNOT Expression .)
+    COMMA           reduce using rule 69 (Expression -> LOGNOT Expression .)
+    CLOSE_SQUARE    reduce using rule 69 (Expression -> LOGNOT Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! MINUS           [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! LOGAND          [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! LOGOR           [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! EQUALS          [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! LESS            [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! GREATER         [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 69 (Expression -> LOGNOT Expression .) ]
+
+
+State 102
+
+    (44) Factor -> OPEN_BRACKET Expression . CLOSED_BRACKET
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    CLOSED_BRACKET  shift and go to State 133
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 103
+
+    (48) IfStatement -> IF OPEN_BRACKET Expression . CLOSED_BRACKET Block
+    (49) IfStatement -> IF OPEN_BRACKET Expression . CLOSED_BRACKET Block ELSE Block
+    (50) IfStatement -> IF OPEN_BRACKET Expression . CLOSED_BRACKET Block ElifStatements
+    (51) IfStatement -> IF OPEN_BRACKET Expression . CLOSED_BRACKET Block ElifStatements ELSE Block
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    CLOSED_BRACKET  shift and go to State 134
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 104
+
+    (60) FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments . CLOSED_BRACKET
+
+    CLOSED_BRACKET  shift and go to State 135
+
+
+State 105
+
+    (61) FunctionArguments -> FunctionArgument .
+    (62) FunctionArguments -> FunctionArgument . COMMA FunctionArguments
+
+    CLOSED_BRACKET  reduce using rule 61 (FunctionArguments -> FunctionArgument .)
+    COMMA           shift and go to State 136
+
+
+State 106
+
+    (63) FunctionArgument -> Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMA           reduce using rule 63 (FunctionArgument -> Expression .)
+    CLOSED_BRACKET  reduce using rule 63 (FunctionArgument -> Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 107
+
+    (80) ScanStatement -> SCAN SCANDEST Variable .
+
+    COMMAND_END     reduce using rule 80 (ScanStatement -> SCAN SCANDEST Variable .)
+
+
+State 108
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment . COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block
+
+    COMMAND_END     shift and go to State 137
+
+
+State 109
+
+    (65) WhileStatement -> WHILE OPEN_BRACKET Expression . CLOSED_BRACKET Block
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    CLOSED_BRACKET  shift and go to State 138
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 110
+
+    (55) FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET . Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 139
+
+State 111
+
+    (58) FunctionParameters -> FunctionParameter COMMA . FunctionParameters
+    (57) FunctionParameters -> . FunctionParameter
+    (58) FunctionParameters -> . FunctionParameter COMMA FunctionParameters
+    (59) FunctionParameter -> . Type Variable
+    (23) Type -> . INT
+    (24) Type -> . DOUBLE
+    (25) Type -> . STRING
+    (26) Type -> . CHAR
+    (27) Type -> . ARRAY
+
+    INT             shift and go to State 36
+    DOUBLE          shift and go to State 37
+    STRING          shift and go to State 78
+    CHAR            shift and go to State 38
+    ARRAY           shift and go to State 79
+
+    FunctionParameter              shift and go to State 76
+    FunctionParameters             shift and go to State 140
+    Type                           shift and go to State 77
+
+State 112
+
+    (59) FunctionParameter -> Type Variable .
+
+    COMMA           reduce using rule 59 (FunctionParameter -> Type Variable .)
+    CLOSED_BRACKET  reduce using rule 59 (FunctionParameter -> Type Variable .)
+
+
+State 113
+
+    (21) Declaration -> Type Variable ASSIGN Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMAND_END     reduce using rule 21 (Declaration -> Type Variable ASSIGN Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 114
+
+    (29) VariableList -> Variable .
+    (30) VariableList -> Variable . COMMA VariableList
+
+    COMMAND_END     reduce using rule 29 (VariableList -> Variable .)
+    COMMA           shift and go to State 141
+
+
+State 115
+
+    (22) Declaration -> Type Variable COMMA VariableList .
+
+    COMMAND_END     reduce using rule 22 (Declaration -> Type Variable COMMA VariableList .)
+
+
+State 116
+
+    (18) StringDeclaration -> STRING QUOTATION_MARK STRING QUOTATION_MARK .
+
+    COMMAND_END     reduce using rule 18 (StringDeclaration -> STRING QUOTATION_MARK STRING QUOTATION_MARK .)
+
+
+State 117
+
+    (19) StringDeclaration -> STRING APOSTROPHE STRING APOSTROPHE .
+
+    COMMAND_END     reduce using rule 19 (StringDeclaration -> STRING APOSTROPHE STRING APOSTROPHE .)
+
+
+State 118
+
+    (76) Array -> ARRAY OPEN_SQUARE ArrayElements CLOSE_SQUARE .
+
+    COMMAND_END     reduce using rule 76 (Array -> ARRAY OPEN_SQUARE ArrayElements CLOSE_SQUARE .)
+
+
+State 119
+
+    (78) ArrayElements -> ArrayElement COMMA . ArrayElements
+    (77) ArrayElements -> . ArrayElement
+    (78) ArrayElements -> . ArrayElement COMMA ArrayElements
+    (79) ArrayElement -> . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    ArrayElement                   shift and go to State 86
+    ArrayElements                  shift and go to State 142
+    Expression                     shift and go to State 87
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 120
+
+    (33) Expression -> Expression PLUS Term .
+    (36) Term -> Term . TIMES Factor
+    (37) Term -> Term . DIV Factor
+    (38) Term -> Term . MOD Factor
+
+    PLUS            reduce using rule 33 (Expression -> Expression PLUS Term .)
+    MINUS           reduce using rule 33 (Expression -> Expression PLUS Term .)
+    LOGAND          reduce using rule 33 (Expression -> Expression PLUS Term .)
+    LOGOR           reduce using rule 33 (Expression -> Expression PLUS Term .)
+    EQUALS          reduce using rule 33 (Expression -> Expression PLUS Term .)
+    LESS_OR_EQUAL   reduce using rule 33 (Expression -> Expression PLUS Term .)
+    GREATER_OR_EQUAL reduce using rule 33 (Expression -> Expression PLUS Term .)
+    LESS            reduce using rule 33 (Expression -> Expression PLUS Term .)
+    GREATER         reduce using rule 33 (Expression -> Expression PLUS Term .)
+    NOT_EQUAL       reduce using rule 33 (Expression -> Expression PLUS Term .)
+    COMMAND_END     reduce using rule 33 (Expression -> Expression PLUS Term .)
+    CLOSED_BRACKET  reduce using rule 33 (Expression -> Expression PLUS Term .)
+    COMMA           reduce using rule 33 (Expression -> Expression PLUS Term .)
+    CLOSE_SQUARE    reduce using rule 33 (Expression -> Expression PLUS Term .)
+    TIMES           shift and go to State 98
+    DIV             shift and go to State 99
+    MOD             shift and go to State 100
+
+
+State 121
+
+    (34) Expression -> Expression MINUS Term .
+    (36) Term -> Term . TIMES Factor
+    (37) Term -> Term . DIV Factor
+    (38) Term -> Term . MOD Factor
+
+    PLUS            reduce using rule 34 (Expression -> Expression MINUS Term .)
+    MINUS           reduce using rule 34 (Expression -> Expression MINUS Term .)
+    LOGAND          reduce using rule 34 (Expression -> Expression MINUS Term .)
+    LOGOR           reduce using rule 34 (Expression -> Expression MINUS Term .)
+    EQUALS          reduce using rule 34 (Expression -> Expression MINUS Term .)
+    LESS_OR_EQUAL   reduce using rule 34 (Expression -> Expression MINUS Term .)
+    GREATER_OR_EQUAL reduce using rule 34 (Expression -> Expression MINUS Term .)
+    LESS            reduce using rule 34 (Expression -> Expression MINUS Term .)
+    GREATER         reduce using rule 34 (Expression -> Expression MINUS Term .)
+    NOT_EQUAL       reduce using rule 34 (Expression -> Expression MINUS Term .)
+    COMMAND_END     reduce using rule 34 (Expression -> Expression MINUS Term .)
+    CLOSED_BRACKET  reduce using rule 34 (Expression -> Expression MINUS Term .)
+    COMMA           reduce using rule 34 (Expression -> Expression MINUS Term .)
+    CLOSE_SQUARE    reduce using rule 34 (Expression -> Expression MINUS Term .)
+    TIMES           shift and go to State 98
+    DIV             shift and go to State 99
+    MOD             shift and go to State 100
+
+
+State 122
+
+    (67) Expression -> Expression LOGAND Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 67 (Expression -> Expression LOGAND Expression .)
+    CLOSED_BRACKET  reduce using rule 67 (Expression -> Expression LOGAND Expression .)
+    COMMA           reduce using rule 67 (Expression -> Expression LOGAND Expression .)
+    CLOSE_SQUARE    reduce using rule 67 (Expression -> Expression LOGAND Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! MINUS           [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! LOGAND          [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! LOGOR           [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! EQUALS          [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! LESS            [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! GREATER         [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 67 (Expression -> Expression LOGAND Expression .) ]
+
+
+State 123
+
+    (68) Expression -> Expression LOGOR Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 68 (Expression -> Expression LOGOR Expression .)
+    CLOSED_BRACKET  reduce using rule 68 (Expression -> Expression LOGOR Expression .)
+    COMMA           reduce using rule 68 (Expression -> Expression LOGOR Expression .)
+    CLOSE_SQUARE    reduce using rule 68 (Expression -> Expression LOGOR Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! MINUS           [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! LOGAND          [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! LOGOR           [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! EQUALS          [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! LESS            [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! GREATER         [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 68 (Expression -> Expression LOGOR Expression .) ]
+
+
+State 124
+
+    (70) Expression -> Expression EQUALS Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 70 (Expression -> Expression EQUALS Expression .)
+    CLOSED_BRACKET  reduce using rule 70 (Expression -> Expression EQUALS Expression .)
+    COMMA           reduce using rule 70 (Expression -> Expression EQUALS Expression .)
+    CLOSE_SQUARE    reduce using rule 70 (Expression -> Expression EQUALS Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! MINUS           [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! LOGAND          [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! LOGOR           [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! EQUALS          [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! LESS            [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! GREATER         [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 70 (Expression -> Expression EQUALS Expression .) ]
+
+
+State 125
+
+    (71) Expression -> Expression LESS_OR_EQUAL Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .)
+    CLOSED_BRACKET  reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .)
+    COMMA           reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .)
+    CLOSE_SQUARE    reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! MINUS           [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! LOGAND          [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! LOGOR           [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! EQUALS          [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! LESS            [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! GREATER         [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 71 (Expression -> Expression LESS_OR_EQUAL Expression .) ]
+
+
+State 126
+
+    (72) Expression -> Expression GREATER_OR_EQUAL Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .)
+    CLOSED_BRACKET  reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .)
+    COMMA           reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .)
+    CLOSE_SQUARE    reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! MINUS           [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! LOGAND          [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! LOGOR           [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! EQUALS          [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! LESS            [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! GREATER         [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 72 (Expression -> Expression GREATER_OR_EQUAL Expression .) ]
+
+
+State 127
+
+    (73) Expression -> Expression LESS Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 73 (Expression -> Expression LESS Expression .)
+    CLOSED_BRACKET  reduce using rule 73 (Expression -> Expression LESS Expression .)
+    COMMA           reduce using rule 73 (Expression -> Expression LESS Expression .)
+    CLOSE_SQUARE    reduce using rule 73 (Expression -> Expression LESS Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! MINUS           [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! LOGAND          [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! LOGOR           [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! EQUALS          [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! LESS            [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! GREATER         [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 73 (Expression -> Expression LESS Expression .) ]
+
+
+State 128
+
+    (74) Expression -> Expression GREATER Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 74 (Expression -> Expression GREATER Expression .)
+    CLOSED_BRACKET  reduce using rule 74 (Expression -> Expression GREATER Expression .)
+    COMMA           reduce using rule 74 (Expression -> Expression GREATER Expression .)
+    CLOSE_SQUARE    reduce using rule 74 (Expression -> Expression GREATER Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! MINUS           [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! LOGAND          [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! LOGOR           [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! EQUALS          [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! LESS            [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! GREATER         [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 74 (Expression -> Expression GREATER Expression .) ]
+
+
+State 129
+
+    (75) Expression -> Expression NOT_EQUAL Expression .
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for LOGAND resolved as shift
+  ! shift/reduce conflict for LOGOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for LESS_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for GREATER_OR_EQUAL resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for NOT_EQUAL resolved as shift
+    COMMAND_END     reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .)
+    CLOSED_BRACKET  reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .)
+    COMMA           reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .)
+    CLOSE_SQUARE    reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .)
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+  ! PLUS            [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! MINUS           [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! LOGAND          [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! LOGOR           [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! EQUALS          [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! LESS_OR_EQUAL   [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! GREATER_OR_EQUAL [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! LESS            [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! GREATER         [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+  ! NOT_EQUAL       [ reduce using rule 75 (Expression -> Expression NOT_EQUAL Expression .) ]
+
+
+State 130
+
+    (36) Term -> Term TIMES Factor .
+
+    TIMES           reduce using rule 36 (Term -> Term TIMES Factor .)
+    DIV             reduce using rule 36 (Term -> Term TIMES Factor .)
+    MOD             reduce using rule 36 (Term -> Term TIMES Factor .)
+    PLUS            reduce using rule 36 (Term -> Term TIMES Factor .)
+    MINUS           reduce using rule 36 (Term -> Term TIMES Factor .)
+    LOGAND          reduce using rule 36 (Term -> Term TIMES Factor .)
+    LOGOR           reduce using rule 36 (Term -> Term TIMES Factor .)
+    EQUALS          reduce using rule 36 (Term -> Term TIMES Factor .)
+    LESS_OR_EQUAL   reduce using rule 36 (Term -> Term TIMES Factor .)
+    GREATER_OR_EQUAL reduce using rule 36 (Term -> Term TIMES Factor .)
+    LESS            reduce using rule 36 (Term -> Term TIMES Factor .)
+    GREATER         reduce using rule 36 (Term -> Term TIMES Factor .)
+    NOT_EQUAL       reduce using rule 36 (Term -> Term TIMES Factor .)
+    COMMAND_END     reduce using rule 36 (Term -> Term TIMES Factor .)
+    CLOSED_BRACKET  reduce using rule 36 (Term -> Term TIMES Factor .)
+    COMMA           reduce using rule 36 (Term -> Term TIMES Factor .)
+    CLOSE_SQUARE    reduce using rule 36 (Term -> Term TIMES Factor .)
+
+
+State 131
+
+    (37) Term -> Term DIV Factor .
+
+    TIMES           reduce using rule 37 (Term -> Term DIV Factor .)
+    DIV             reduce using rule 37 (Term -> Term DIV Factor .)
+    MOD             reduce using rule 37 (Term -> Term DIV Factor .)
+    PLUS            reduce using rule 37 (Term -> Term DIV Factor .)
+    MINUS           reduce using rule 37 (Term -> Term DIV Factor .)
+    LOGAND          reduce using rule 37 (Term -> Term DIV Factor .)
+    LOGOR           reduce using rule 37 (Term -> Term DIV Factor .)
+    EQUALS          reduce using rule 37 (Term -> Term DIV Factor .)
+    LESS_OR_EQUAL   reduce using rule 37 (Term -> Term DIV Factor .)
+    GREATER_OR_EQUAL reduce using rule 37 (Term -> Term DIV Factor .)
+    LESS            reduce using rule 37 (Term -> Term DIV Factor .)
+    GREATER         reduce using rule 37 (Term -> Term DIV Factor .)
+    NOT_EQUAL       reduce using rule 37 (Term -> Term DIV Factor .)
+    COMMAND_END     reduce using rule 37 (Term -> Term DIV Factor .)
+    CLOSED_BRACKET  reduce using rule 37 (Term -> Term DIV Factor .)
+    COMMA           reduce using rule 37 (Term -> Term DIV Factor .)
+    CLOSE_SQUARE    reduce using rule 37 (Term -> Term DIV Factor .)
+
+
+State 132
+
+    (38) Term -> Term MOD Factor .
+
+    TIMES           reduce using rule 38 (Term -> Term MOD Factor .)
+    DIV             reduce using rule 38 (Term -> Term MOD Factor .)
+    MOD             reduce using rule 38 (Term -> Term MOD Factor .)
+    PLUS            reduce using rule 38 (Term -> Term MOD Factor .)
+    MINUS           reduce using rule 38 (Term -> Term MOD Factor .)
+    LOGAND          reduce using rule 38 (Term -> Term MOD Factor .)
+    LOGOR           reduce using rule 38 (Term -> Term MOD Factor .)
+    EQUALS          reduce using rule 38 (Term -> Term MOD Factor .)
+    LESS_OR_EQUAL   reduce using rule 38 (Term -> Term MOD Factor .)
+    GREATER_OR_EQUAL reduce using rule 38 (Term -> Term MOD Factor .)
+    LESS            reduce using rule 38 (Term -> Term MOD Factor .)
+    GREATER         reduce using rule 38 (Term -> Term MOD Factor .)
+    NOT_EQUAL       reduce using rule 38 (Term -> Term MOD Factor .)
+    COMMAND_END     reduce using rule 38 (Term -> Term MOD Factor .)
+    CLOSED_BRACKET  reduce using rule 38 (Term -> Term MOD Factor .)
+    COMMA           reduce using rule 38 (Term -> Term MOD Factor .)
+    CLOSE_SQUARE    reduce using rule 38 (Term -> Term MOD Factor .)
+
+
+State 133
+
+    (44) Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .
+
+    TIMES           reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    DIV             reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    MOD             reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    PLUS            reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    MINUS           reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    LOGAND          reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    LOGOR           reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    EQUALS          reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    LESS_OR_EQUAL   reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    GREATER_OR_EQUAL reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    LESS            reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    GREATER         reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    NOT_EQUAL       reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    COMMAND_END     reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    CLOSED_BRACKET  reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    COMMA           reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+    CLOSE_SQUARE    reduce using rule 44 (Factor -> OPEN_BRACKET Expression CLOSED_BRACKET .)
+
+
+State 134
+
+    (48) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET . Block
+    (49) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET . Block ELSE Block
+    (50) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET . Block ElifStatements
+    (51) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET . Block ElifStatements ELSE Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 143
+
+State 135
+
+    (60) FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .
+
+    COMMAND_END     reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    TIMES           reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    DIV             reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    MOD             reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    PLUS            reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    MINUS           reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    LOGAND          reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    LOGOR           reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    EQUALS          reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    LESS_OR_EQUAL   reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    GREATER_OR_EQUAL reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    LESS            reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    GREATER         reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    NOT_EQUAL       reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    CLOSED_BRACKET  reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    COMMA           reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+    CLOSE_SQUARE    reduce using rule 60 (FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET .)
+
+
+State 136
+
+    (62) FunctionArguments -> FunctionArgument COMMA . FunctionArguments
+    (61) FunctionArguments -> . FunctionArgument
+    (62) FunctionArguments -> . FunctionArgument COMMA FunctionArguments
+    (63) FunctionArgument -> . Expression
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    FunctionArgument               shift and go to State 105
+    FunctionArguments              shift and go to State 144
+    Expression                     shift and go to State 106
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 137
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END . Expression COMMAND_END Assignment CLOSED_BRACKET Block
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 145
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 138
+
+    (65) WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET . Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 146
+
+State 139
+
+    (55) FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .
+
+    MAIN_BEGIN      reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    FUNCTION        reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    STRING          reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    ARRAY           reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    PRINT           reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    IF              reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    SCAN            reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    FOR             reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    WHILE           reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    RETURN          reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    INT             reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    DOUBLE          reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    CHAR            reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    NAME            reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 55 (FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block .)
+
+
+State 140
+
+    (58) FunctionParameters -> FunctionParameter COMMA FunctionParameters .
+
+    CLOSED_BRACKET  reduce using rule 58 (FunctionParameters -> FunctionParameter COMMA FunctionParameters .)
+
+
+State 141
+
+    (30) VariableList -> Variable COMMA . VariableList
+    (29) VariableList -> . Variable
+    (30) VariableList -> . Variable COMMA VariableList
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Variable                       shift and go to State 114
+    VariableList                   shift and go to State 147
+
+State 142
+
+    (78) ArrayElements -> ArrayElement COMMA ArrayElements .
+
+    CLOSE_SQUARE    reduce using rule 78 (ArrayElements -> ArrayElement COMMA ArrayElements .)
+
+
+State 143
+
+    (48) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .
+    (49) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block . ELSE Block
+    (50) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block . ElifStatements
+    (51) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block . ElifStatements ELSE Block
+    (52) ElifStatements -> . ElifStatement
+    (53) ElifStatements -> . ElifStatement ElifStatements
+    (54) ElifStatement -> . ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block
+
+    STRING          reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    ARRAY           reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    PRINT           reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    IF              reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    FUNCTION        reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    SCAN            reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    FOR             reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    WHILE           reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    RETURN          reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    INT             reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    DOUBLE          reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    CHAR            reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    NAME            reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 48 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    ELSE            shift and go to State 148
+    ELIF            shift and go to State 151
+
+    ElifStatements                 shift and go to State 149
+    ElifStatement                  shift and go to State 150
+
+State 144
+
+    (62) FunctionArguments -> FunctionArgument COMMA FunctionArguments .
+
+    CLOSED_BRACKET  reduce using rule 62 (FunctionArguments -> FunctionArgument COMMA FunctionArguments .)
+
+
+State 145
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression . COMMAND_END Assignment CLOSED_BRACKET Block
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    COMMAND_END     shift and go to State 152
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 146
+
+    (65) WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .
+
+    STRING          reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    ARRAY           reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    PRINT           reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    IF              reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    FUNCTION        reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    SCAN            reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    FOR             reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    WHILE           reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    RETURN          reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    INT             reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    DOUBLE          reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    CHAR            reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    NAME            reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 65 (WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+
+
+State 147
+
+    (30) VariableList -> Variable COMMA VariableList .
+
+    COMMAND_END     reduce using rule 30 (VariableList -> Variable COMMA VariableList .)
+
+
+State 148
+
+    (49) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE . Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 153
+
+State 149
+
+    (50) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .
+    (51) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements . ELSE Block
+
+    STRING          reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    ARRAY           reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    PRINT           reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    IF              reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    FUNCTION        reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    SCAN            reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    FOR             reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    WHILE           reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    RETURN          reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    INT             reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    DOUBLE          reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    CHAR            reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    NAME            reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    CLOSED_CURLY_BRACKET reduce using rule 50 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements .)
+    ELSE            shift and go to State 154
+
+
+State 150
+
+    (52) ElifStatements -> ElifStatement .
+    (53) ElifStatements -> ElifStatement . ElifStatements
+    (52) ElifStatements -> . ElifStatement
+    (53) ElifStatements -> . ElifStatement ElifStatements
+    (54) ElifStatement -> . ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block
+
+    ELSE            reduce using rule 52 (ElifStatements -> ElifStatement .)
+    STRING          reduce using rule 52 (ElifStatements -> ElifStatement .)
+    ARRAY           reduce using rule 52 (ElifStatements -> ElifStatement .)
+    PRINT           reduce using rule 52 (ElifStatements -> ElifStatement .)
+    IF              reduce using rule 52 (ElifStatements -> ElifStatement .)
+    FUNCTION        reduce using rule 52 (ElifStatements -> ElifStatement .)
+    SCAN            reduce using rule 52 (ElifStatements -> ElifStatement .)
+    FOR             reduce using rule 52 (ElifStatements -> ElifStatement .)
+    WHILE           reduce using rule 52 (ElifStatements -> ElifStatement .)
+    RETURN          reduce using rule 52 (ElifStatements -> ElifStatement .)
+    INT             reduce using rule 52 (ElifStatements -> ElifStatement .)
+    DOUBLE          reduce using rule 52 (ElifStatements -> ElifStatement .)
+    CHAR            reduce using rule 52 (ElifStatements -> ElifStatement .)
+    NAME            reduce using rule 52 (ElifStatements -> ElifStatement .)
+    CLOSED_CURLY_BRACKET reduce using rule 52 (ElifStatements -> ElifStatement .)
+    ELIF            shift and go to State 151
+
+    ElifStatement                  shift and go to State 150
+    ElifStatements                 shift and go to State 155
+
+State 151
+
+    (54) ElifStatement -> ELIF . OPEN_BRACKET Expression CLOSED_BRACKET Block
+
+    OPEN_BRACKET    shift and go to State 156
+
+
+State 152
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END . Assignment CLOSED_BRACKET Block
+    (31) Assignment -> . Variable ASSIGN Expression
+    (28) Variable -> . NAME
+
+    NAME            shift and go to State 52
+
+    Assignment                     shift and go to State 157
+    Variable                       shift and go to State 26
+
+State 153
+
+    (49) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .
+
+    STRING          reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    ARRAY           reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    PRINT           reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    IF              reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    FUNCTION        reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    SCAN            reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    FOR             reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    WHILE           reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    RETURN          reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    INT             reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    DOUBLE          reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    CHAR            reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    NAME            reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 49 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block .)
+
+
+State 154
+
+    (51) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE . Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 158
+
+State 155
+
+    (53) ElifStatements -> ElifStatement ElifStatements .
+
+    ELSE            reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    STRING          reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    ARRAY           reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    PRINT           reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    IF              reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    FUNCTION        reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    SCAN            reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    FOR             reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    WHILE           reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    RETURN          reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    INT             reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    DOUBLE          reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    CHAR            reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    NAME            reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+    CLOSED_CURLY_BRACKET reduce using rule 53 (ElifStatements -> ElifStatement ElifStatements .)
+
+
+State 156
+
+    (54) ElifStatement -> ELIF OPEN_BRACKET . Expression CLOSED_BRACKET Block
+    (32) Expression -> . Term
+    (33) Expression -> . Expression PLUS Term
+    (34) Expression -> . Expression MINUS Term
+    (67) Expression -> . Expression LOGAND Expression
+    (68) Expression -> . Expression LOGOR Expression
+    (69) Expression -> . LOGNOT Expression
+    (70) Expression -> . Expression EQUALS Expression
+    (71) Expression -> . Expression LESS_OR_EQUAL Expression
+    (72) Expression -> . Expression GREATER_OR_EQUAL Expression
+    (73) Expression -> . Expression LESS Expression
+    (74) Expression -> . Expression GREATER Expression
+    (75) Expression -> . Expression NOT_EQUAL Expression
+    (35) Term -> . Factor
+    (36) Term -> . Term TIMES Factor
+    (37) Term -> . Term DIV Factor
+    (38) Term -> . Term MOD Factor
+    (39) Factor -> . INT_WORD
+    (40) Factor -> . DOUBLE_WORD
+    (41) Factor -> . STRING_WORD
+    (42) Factor -> . CHAR_WORD
+    (43) Factor -> . NAME_WORD
+    (44) Factor -> . OPEN_BRACKET Expression CLOSED_BRACKET
+    (45) NAME_WORD -> . NAME
+    (46) NAME_WORD -> . FunctionCall
+    (60) FunctionCall -> . FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+    (56) FunctionName -> . NAME
+
+    LOGNOT          shift and go to State 59
+    INT_WORD        shift and go to State 61
+    DOUBLE_WORD     shift and go to State 62
+    STRING_WORD     shift and go to State 63
+    CHAR_WORD       shift and go to State 64
+    OPEN_BRACKET    shift and go to State 66
+    NAME            shift and go to State 67
+
+    Expression                     shift and go to State 159
+    Term                           shift and go to State 58
+    Factor                         shift and go to State 60
+    NAME_WORD                      shift and go to State 65
+    FunctionCall                   shift and go to State 68
+    FunctionName                   shift and go to State 31
+
+State 157
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment . CLOSED_BRACKET Block
+
+    CLOSED_BRACKET  shift and go to State 160
+
+
+State 158
+
+    (51) IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .
+
+    STRING          reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    ARRAY           reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    PRINT           reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    IF              reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    FUNCTION        reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    SCAN            reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    FOR             reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    WHILE           reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    RETURN          reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    INT             reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    DOUBLE          reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    CHAR            reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    NAME            reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 51 (IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block .)
+
+
+State 159
+
+    (54) ElifStatement -> ELIF OPEN_BRACKET Expression . CLOSED_BRACKET Block
+    (33) Expression -> Expression . PLUS Term
+    (34) Expression -> Expression . MINUS Term
+    (67) Expression -> Expression . LOGAND Expression
+    (68) Expression -> Expression . LOGOR Expression
+    (70) Expression -> Expression . EQUALS Expression
+    (71) Expression -> Expression . LESS_OR_EQUAL Expression
+    (72) Expression -> Expression . GREATER_OR_EQUAL Expression
+    (73) Expression -> Expression . LESS Expression
+    (74) Expression -> Expression . GREATER Expression
+    (75) Expression -> Expression . NOT_EQUAL Expression
+
+    CLOSED_BRACKET  shift and go to State 161
+    PLUS            shift and go to State 88
+    MINUS           shift and go to State 89
+    LOGAND          shift and go to State 90
+    LOGOR           shift and go to State 91
+    EQUALS          shift and go to State 92
+    LESS_OR_EQUAL   shift and go to State 93
+    GREATER_OR_EQUAL shift and go to State 94
+    LESS            shift and go to State 95
+    GREATER         shift and go to State 96
+    NOT_EQUAL       shift and go to State 97
+
+
+State 160
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET . Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 162
+
+State 161
+
+    (54) ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET . Block
+    (3) Block -> . OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+    OPEN_CURLY_BRACKET shift and go to State 6
+
+    Block                          shift and go to State 163
+
+State 162
+
+    (66) ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .
+
+    STRING          reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    ARRAY           reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    PRINT           reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    IF              reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    FUNCTION        reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    SCAN            reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    FOR             reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    WHILE           reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    RETURN          reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    INT             reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    DOUBLE          reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    CHAR            reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    NAME            reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 66 (ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block .)
+
+
+State 163
+
+    (54) ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .
+
+    ELIF            reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    ELSE            reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    STRING          reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    ARRAY           reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    PRINT           reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    IF              reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    FUNCTION        reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    SCAN            reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    FOR             reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    WHILE           reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    RETURN          reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    INT             reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    DOUBLE          reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    CHAR            reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    NAME            reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+    CLOSED_CURLY_BRACKET reduce using rule 54 (ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block .)
+

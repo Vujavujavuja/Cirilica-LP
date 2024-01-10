@@ -1,0 +1,37 @@
+Program ->'почетак' Block 'крај'
+Block ->'{' Statements '}'
+
+Statements -> Statement | Statement Statements
+Statement -> Declaration ';' | Assignment ';' | PrintStatement ';' | IfStatement | FunctionDeclaration | FunctionCall ';'
+
+Declaration -> Type VariableName
+Type -> 'цели број' | 'реалан број' | 'слово' | 'текст' | 'низ'
+
+Assignment -> VariableName 'je' Expression
+
+PrintStatement -> ('пиши') '(' Output ')'
+Output -> String | VariableName | Expression
+
+IfStatement -> 'ако' '(' Condition ')' Block ElseStatement
+ElseStatement -> 'иначе' Block | ε
+WhileStatement -> 'заврни док' '(' Condition ')' Block
+ForStatement -> 'обрни за' '(' ForInitialization ';' ForCondition ';' ForIteration ')' Block
+
+ForInitialization -> Declaration | Assignment
+ForCondition -> Condition
+ForIteration -> Assignment
+
+FunctionDeclaration -> 'функција' FunctionName '(' Parameters ')' Block
+FunctionCall -> FunctionName '(' Arguments ')'
+FunctionName -> VariableName
+Parameters -> Parameter | Parameter ',' Parameters
+Parameter -> Type VariableName
+Arguments -> Argument | Argument ',' Arguments
+Argument -> Expression
+
+Expression -> Term | Term Operator Term | '(' Expression ')' | Expression LogicalOperator Expression
+Term -> VariableName | Number
+Operator -> 'плус' | 'минус' | 'пута' | 'подели' | 'остатак'
+LogicalOperator -> 'ии' | 'или' | 'не'
+Condition -> Expression RelationalOperator Expression
+RelationalOperator -> 'већи' | 'мањи' | 'већи једнак' | 'мањи једнак' | 'једнак' | 'неједнак'

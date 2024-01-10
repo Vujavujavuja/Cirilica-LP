@@ -1,0 +1,108 @@
+S' -> Program
+
+Program -> MAIN_BEGIN Block MAIN_END
+Program -> FunctionDeclaration Program
+
+Block -> OPEN_CURLY_BRACKET Statements CLOSED_CURLY_BRACKET
+
+Statements -> Statement
+Statements -> Statement Statements
+
+Statement -> Declaration COMMAND_END
+Statement -> StringDeclaration COMMAND_END
+Statement -> Array COMMAND_END
+Statement -> Assignment COMMAND_END
+Statement -> PrintStatement COMMAND_END
+Statement -> IfStatement
+Statement -> FunctionDeclaration
+Statement -> FunctionCall COMMAND_END
+Statement -> ScanStatement COMMAND_END
+Statement -> ForStatement
+Statement -> WhileStatement
+Statement -> ReturnStatement COMMAND_END
+
+Declaration -> Type Variable
+Declaration -> Type Variable ASSIGN Expression
+Declaration -> Type Variable COMMA VariableList
+
+Type -> INT
+Type -> DOUBLE
+Type -> STRING
+Type -> CHAR
+Type -> ARRAY
+
+Variable -> NAME
+
+VariableList -> Variable
+VariableList -> Variable COMMA VariableList
+
+Assignment -> Variable ASSIGN Expression
+
+Expression -> Term
+Expression -> Expression PLUS Term
+Expression -> Expression MINUS Term
+
+Term -> Factor
+Term -> Term TIMES Factor
+Term -> Term DIV Factor
+Term -> Term MOD Factor
+
+Factor -> INT_WORD
+Factor -> DOUBLE_WORD
+Factor -> STRING_WORD
+Factor -> CHAR_WORD
+Factor -> NAME_WORD
+Factor -> OPEN_BRACKET Expression CLOSED_BRACKET
+
+NAME_WORD -> NAME
+NAME_WORD -> FunctionCall
+
+PrintStatement -> PRINT Expression
+
+IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block
+IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ELSE Block
+IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements
+IfStatement -> IF OPEN_BRACKET Expression CLOSED_BRACKET Block ElifStatements ELSE Block
+
+ElifStatements -> ElifStatement
+ElifStatements -> ElifStatement ElifStatements
+ElifStatement -> ELIF OPEN_BRACKET Expression CLOSED_BRACKET Block
+
+FunctionDeclaration -> FUNCTION FunctionName OPEN_BRACKET FunctionParameters CLOSED_BRACKET Block
+
+FunctionName -> NAME
+
+FunctionParameters -> FunctionParameter
+FunctionParameters -> FunctionParameter COMMA FunctionParameters
+FunctionParameter -> Type Variable
+
+FunctionCall -> FunctionName OPEN_BRACKET FunctionArguments CLOSED_BRACKET
+
+FunctionArguments -> FunctionArgument
+FunctionArguments -> FunctionArgument COMMA FunctionArguments
+FunctionArgument -> Expression
+
+ReturnStatement -> RETURN Expression
+
+WhileStatement -> WHILE OPEN_BRACKET Expression CLOSED_BRACKET Block
+
+ForStatement -> FOR OPEN_BRACKET Assignment COMMAND_END Expression COMMAND_END Assignment CLOSED_BRACKET Block
+
+Expression -> Expression LOGAND Expression
+Expression -> Expression LOGOR Expression
+Expression -> LOGNOT Expression
+Expression -> Expression EQUALS Expression
+Expression -> Expression LESS_OR_EQUAL Expression
+Expression -> Expression GREATER_OR_EQUAL Expression
+Expression -> Expression LESS Expression
+Expression -> Expression GREATER Expression
+Expression -> Expression NOT_EQUAL Expression
+
+Array -> ARRAY OPEN_SQUARE ArrayElements CLOSE_SQUARE
+
+ArrayElements -> ArrayElement
+ArrayElements -> ArrayElement COMMA ArrayElements
+
+ArrayElement -> Expression
+
+ScanStatement -> SCAN SCANDEST Variable
