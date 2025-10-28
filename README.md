@@ -1,20 +1,41 @@
-# Lexer-Parser in Cyrillic Project for Programski prevodioci
+# 🇷🇸 Lexer-Parser for a Custom Cyrillic Language
 
-## Overview
-This project is part of the "Programski prevodioci" course at Racunarski Fakultet. It consists of a lexer developed in Java and a parser implemented in Python. The primary goal of this project is to demonstrate the practical application of lexical analysis and parsing in compiler design, and creating a custom programing language. 
+## Project Overview
 
-## Author
-- Nemanja Vujic
+This project implements the foundational components—a **Lexer** and a **Parser**—required to process and validate a custom programming language defined using the Cyrillic alphabet. It is a fundamental demonstration of compiler design principles applied to create a robust front-end for a new language.
 
-## Project Supervisor
-- Mihajlo Stojanovic (Professor's Assistant)
+The primary goal is to provide a complete language processing pipeline for syntax analysis and error checking.
 
-## Lexer (Java)
-The lexer is responsible for tokenizing the input source code. It scans the input characters and classifies them into tokens that are used by the parser for syntax analysis.
+***
 
-## Parser (Python)
-The parser takes the tokenized input from the lexer and constructs a parse tree. It checks the source code for syntactic correctness and handles errors gracefully.
+## 🛠️ Components & Technologies
 
-## Installation
-To start the program you can either choose to run Main.java for just the Lexer part of the project, or run codes.py in python to run both the lexer and parser. Codes are located in javaLexer/ProgramskiPrevodioci1/src/codes and can be edited. 
+| Component | Language | Role |
+| :--- | :--- | :--- |
+| **Lexer** | **Java** | Tokenizes the input source code, scanning characters and classifying them into tokens for the parser. |
+| **Parser** | **Python** | Consumes the token stream from the Lexer, checks the source code for syntactic correctness, and constructs an abstract parse tree. |
 
+***
+
+## 👤 Credits
+
+| Role | Name |
+| :--- | :--- |
+| **Author** | Nemanja Vujic |
+| **Supervisor** | Mihajlo Stojanovic |
+
+***
+
+## 🚀 Getting Started
+
+### Installation & Execution
+
+The project provides two execution paths, depending on whether you want to run the components independently or as a complete pipeline.
+
+1.  **Lexer Only (Java):**
+    * Compile and run `Main.java` to test the tokenization stage.
+
+2.  **Lexer & Parser Pipeline (Python):**
+    * Run `codes.py` to execute the full process, integrating both the Java Lexer output and the Python Parser.
+
+The source code files for the custom language are located in `javaLexer/ProgramskiPrevodioci1/src/codes/` and can be edited to test different language constructs.
